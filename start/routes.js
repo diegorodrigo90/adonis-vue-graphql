@@ -24,3 +24,6 @@ Route.post('/graphql', (context) => {
 Route.get('/graphiql', (context) => {
   return GraphQLServer.handleUI(context)
 })
+
+// This has to be the last route
+Route.any('*', ({view}) =>  view.render('app'))
