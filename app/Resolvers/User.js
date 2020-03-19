@@ -2,9 +2,21 @@
 
 const User = use('App/Models/User')
 
+const HEADER_NAME = 'authorization';
+
 module.exports = {
   Query: {
-    allUsers: async() => { const users = await User.all()
+    isAuthenticated: async (next, src, args, { auth }) => {
+      try {
+        await auth.check()
+        return next()
+      } catch (error) {
+        throw new GraphQLError('User has to be authenticated')
+      }
+    },
+    me: async(root, args, context) => context.currentUser,
+    allUsers: async () => {
+      const users = await User.all()
       return users.toJSON()
     },
     // Get a user by its ID
