@@ -39494,7 +39494,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/App.vue */ "./resources/assets/js/App.vue");
-/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/router */ "./resources/assets/js/router.js");
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/router */ "./resources/assets/js/router/index.js");
 /* harmony import */ var _plugins_argon_kit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/plugins/argon-kit */ "./resources/assets/js/plugins/argon-kit.js");
 /* harmony import */ var _registerServiceWorker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/registerServiceWorker */ "./resources/assets/js/registerServiceWorker.js");
 
@@ -39640,10 +39640,10 @@ if (false) {}
 
 /***/ }),
 
-/***/ "./resources/assets/js/router.js":
-/*!***************************************!*\
-  !*** ./resources/assets/js/router.js ***!
-  \***************************************/
+/***/ "./resources/assets/js/router/index.js":
+/*!*********************************************!*\
+  !*** ./resources/assets/js/router/index.js ***!
+  \*********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -39652,66 +39652,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _layout_AppHeader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./layout/AppHeader */ "./resources/assets/js/layout/AppHeader.vue");
-/* harmony import */ var _layout_AppFooter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./layout/AppFooter */ "./resources/assets/js/layout/AppFooter.vue");
-/* harmony import */ var _views_Components_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/Components.vue */ "./resources/assets/js/views/Components.vue");
-/* harmony import */ var _views_Landing_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/Landing.vue */ "./resources/assets/js/views/Landing.vue");
-/* harmony import */ var _views_Login_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/Login.vue */ "./resources/assets/js/views/Login.vue");
-/* harmony import */ var _views_Register_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/Register.vue */ "./resources/assets/js/views/Register.vue");
-/* harmony import */ var _views_Profile_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/Profile.vue */ "./resources/assets/js/views/Profile.vue");
-
-
-
-
-
-
+/* harmony import */ var _router_routes_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/router/routes.map */ "./resources/assets/js/router/routes.map.js");
 
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   linkExactActiveClass: "active",
-  routes: [{
-    path: "/",
-    name: "components",
-    components: {
-      header: _layout_AppHeader__WEBPACK_IMPORTED_MODULE_2__["default"],
-      "default": _views_Components_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-      footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_3__["default"]
-    }
-  }, {
-    path: "/landing",
-    name: "landing",
-    components: {
-      header: _layout_AppHeader__WEBPACK_IMPORTED_MODULE_2__["default"],
-      "default": _views_Landing_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-      footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_3__["default"]
-    }
-  }, {
-    path: "/login",
-    name: "login",
-    components: {
-      header: _layout_AppHeader__WEBPACK_IMPORTED_MODULE_2__["default"],
-      "default": _views_Login_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
-      footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_3__["default"]
-    }
-  }, {
-    path: "/register",
-    name: "register",
-    components: {
-      header: _layout_AppHeader__WEBPACK_IMPORTED_MODULE_2__["default"],
-      "default": _views_Register_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
-      footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_3__["default"]
-    }
-  }, {
-    path: "/profile",
-    name: "profile",
-    components: {
-      header: _layout_AppHeader__WEBPACK_IMPORTED_MODULE_2__["default"],
-      "default": _views_Profile_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
-      footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_3__["default"]
-    }
-  }],
+  routes: _router_routes_map__WEBPACK_IMPORTED_MODULE_2__["default"],
+  mode: 'history',
   scrollBehavior: function scrollBehavior(to) {
     if (to.hash) {
       return {
@@ -39725,6 +39674,89 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     }
   }
 }));
+
+/***/ }),
+
+/***/ "./resources/assets/js/router/routes.map.js":
+/*!**************************************************!*\
+  !*** ./resources/assets/js/router/routes.map.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _layout_AppHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/layout/AppHeader */ "./resources/assets/js/layout/AppHeader.vue");
+/* harmony import */ var _layout_AppFooter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/layout/AppFooter */ "./resources/assets/js/layout/AppFooter.vue");
+/* harmony import */ var _views_Login_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/views/Login.vue */ "./resources/assets/js/views/Login.vue");
+/* harmony import */ var _views_Register_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/views/Register.vue */ "./resources/assets/js/views/Register.vue");
+/* harmony import */ var _views_Components_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/views/Components.vue */ "./resources/assets/js/views/Components.vue");
+/* harmony import */ var _views_Landing_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/views/Landing.vue */ "./resources/assets/js/views/Landing.vue");
+/* harmony import */ var _views_Profile_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/views/Profile.vue */ "./resources/assets/js/views/Profile.vue");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/store */ "./resources/assets/js/store/index.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_store__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/router */ "./resources/assets/js/router/index.js");
+
+
+
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ([{
+  path: "/",
+  name: "components",
+  components: {
+    header: _layout_AppHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
+    "default": _views_Components_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }
+}, {
+  path: "/landing",
+  name: "landing",
+  components: {
+    header: _layout_AppHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
+    "default": _views_Landing_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }
+}, {
+  path: "/profile",
+  name: "profile",
+  components: {
+    header: _layout_AppHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
+    "default": _views_Profile_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }
+}, {
+  path: "/login",
+  name: "login",
+  components: {
+    header: _layout_AppHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
+    "default": _views_Login_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }
+}, {
+  path: "/register",
+  name: "register",
+  components: {
+    header: _layout_AppHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
+    "default": _views_Register_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }
+}]);
+
+/***/ }),
+
+/***/ "./resources/assets/js/store/index.js":
+/*!********************************************!*\
+  !*** ./resources/assets/js/store/index.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 
