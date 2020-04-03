@@ -6,13 +6,15 @@ import Components from "@/views/Components.vue";
 import Landing from "@/views/Landing.vue";
 import Profile from "@/views/Profile.vue";
 
-import store from "@/store";
-import router from "@/router";
+
 
 export default [
   {
     path: "/",
     name: "components",
+    meta: {
+      requiresAuth: true
+    },
     components: {
       header: AppHeader,
       default: Components,
@@ -22,6 +24,9 @@ export default [
   {
     path: "/landing",
     name: "landing",
+    meta: {
+      requiresAuth: true
+    },
     components: {
       header: AppHeader,
       default: Landing,
@@ -31,6 +36,9 @@ export default [
   {
     path: "/profile",
     name: "profile",
+    meta: {
+      requiresAuth: true
+    },
     components: {
       header: AppHeader,
       default: Profile,

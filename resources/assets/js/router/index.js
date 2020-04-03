@@ -1,12 +1,15 @@
 import Vue from "vue";
 import Router from "vue-router";
 
+import store from "@/store";
+
+
 import routes from '@/router/routes.map';
 
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   linkExactActiveClass: "active",
   routes,
   mode: 'history',
@@ -18,3 +21,18 @@ export default new Router({
     }
   }
 });
+
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  const authenticated = store.state.auth.authenticated;
+  if (requiresAuth && !authenticated) {
+      return router.push({ name: 'login' }).catch(err => { });
+  } else if (requiresAuth && authenticated) {
+      next();
+  } else {
+      next();
+  }
+})
+
+export default router;
+
