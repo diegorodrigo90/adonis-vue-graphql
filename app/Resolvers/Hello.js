@@ -1,5 +1,1 @@
-module.exports = {
-  Query: {
-    hello: () => 'World'
-  }
-}
+module.exports = { Query: { hello: () => 'World' } }

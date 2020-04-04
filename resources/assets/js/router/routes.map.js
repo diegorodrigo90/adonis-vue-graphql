@@ -1,20 +1,18 @@
-import AppHeader from "@/layout/AppHeader";
-import AppFooter from "@/layout/AppFooter";
-import Login from "@/views/Login.vue";
-import Register from "@/views/Register.vue";
-import Components from "@/views/Components.vue";
-import Landing from "@/views/Landing.vue";
-import Profile from "@/views/Profile.vue";
-
+import AppHeader from '@/layout/AppHeader'
+import AppFooter from '@/layout/AppFooter'
+import Login from '@/views/Login.vue'
+import Logout from '@/views/Logout.vue'
+import Register from '@/views/Register.vue'
+import Components from '@/views/Components.vue'
+import Landing from '@/views/Landing.vue'
+import Profile from '@/views/Profile.vue'
 
 
 export default [
   {
-    path: "/",
-    name: "components",
-    meta: {
-      requiresAuth: true
-    },
+    path: '/',
+    name: 'components',
+    meta: { requiresAuth: true },
     components: {
       header: AppHeader,
       default: Components,
@@ -22,11 +20,9 @@ export default [
     }
   },
   {
-    path: "/landing",
-    name: "landing",
-    meta: {
-      requiresAuth: true
-    },
+    path: '/landing',
+    name: 'landing',
+    meta: { requiresAuth: true },
     components: {
       header: AppHeader,
       default: Landing,
@@ -34,11 +30,9 @@ export default [
     }
   },
   {
-    path: "/profile",
-    name: "profile",
-    meta: {
-      requiresAuth: true
-    },
+    path: '/profile',
+    name: 'profile',
+    meta: { requiresAuth: true },
     components: {
       header: AppHeader,
       default: Profile,
@@ -46,8 +40,8 @@ export default [
     }
   },
   {
-    path: "/login",
-    name: "login",
+    path: '/login',
+    name: 'login',
     components: {
       header: AppHeader,
       default: Login,
@@ -55,12 +49,21 @@ export default [
     }
   },
   {
-    path: "/register",
-    name: "register",
+    path: '/logout',
+    name: 'logout',
+    components: {
+      header: AppHeader,
+      default: Logout,
+      footer: AppFooter
+    }
+  },
+  {
+    path: '/register',
+    name: 'register',
     components: {
       header: AppHeader,
       default: Register,
       footer: AppFooter
     }
   }
-];
+]

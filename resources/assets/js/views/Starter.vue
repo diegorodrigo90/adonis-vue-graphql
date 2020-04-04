@@ -1,10 +1,12 @@
-<template>
-    <div>
-        Hello World
-    </div>
-</template>
 <script>
-export default {};
+export default {}
 </script>
+
+<template>
+  <div>
+    Hello World
+  </div>
+</template>
+
 <style>
 </style>
