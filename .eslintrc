@@ -1,6 +1,7 @@
 {
   "plugins": [
-    "vue"
+    "vue",
+    "graphql"
 
   ],
   "env": {
@@ -10,7 +11,7 @@
     "browser": true
   },
   "parserOptions": {
-    "ecmaVersion": 6,
+    "ecmaVersion": 8,
     "parser": "babel-eslint"
   },
   "extends": [

@@ -1,23 +1,11 @@
-"eslint.autoFixOnSave": true,
-"eslint.validate": [
-  {
-    "language": "vue",
-    "autoFix": true
-  },
-  {
-    "language": "html",
-    "autoFix": true
-  },
-  {
-    "language": "javascript",
-    "autoFix": true
-  }
-],
-"eslint.options": {
-  "extensions": [
-    ".js",
-    ".vue"
-  ]
+{
+"editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+  "eslint.options": {
+    "extensions": [
+      ".js",
+      ".vue",
+      ".graphql"
+    ]
 },
 "vetur.format.defaultFormatter.css": "none",
 "vetur.format.defaultFormatter.js": "none",
@@ -25,4 +13,6 @@
 "vetur.format.defaultFormatter.postcss": "none",
 "vetur.format.defaultFormatter.scss": "none",
 "vetur.format.defaultFormatter.stylus": "none",
-"vetur.format.defaultFormatter.ts": "none"
+"vetur.format.defaultFormatter.ts": "none",
+"javascript.format.semicolons": "remove"
+}

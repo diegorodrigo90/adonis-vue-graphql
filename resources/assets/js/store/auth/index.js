@@ -8,15 +8,15 @@ const state = {
 }
 
 const mutations = {
-  AUTH_USER_TOKEN (state, token) {
+  AUTH_USER_TOKEN (token) {
     localStorage.setItem(ACCESS_TOKEN, token)
     state.token = token
     state.authenticated = true
   },
-  AUTH_USER (state, user) {
+  AUTH_USER (user) {
     state.user = user
   },
-  AUTH_USER_LOGOUT (state) {
+  AUTH_USER_LOGOUT () {
     state.user = null
     state.token = null
     localStorage.removeItem(ACCESS_TOKEN)
@@ -40,11 +40,12 @@ const actions = {
         .then(response => {
           commit('AUTH_USER_TOKEN', response.data.data.login)
           localStorage.setItem(
-            ACCESS_TOKEN,
-            response.data.data.login
+            ACCESS_TOKEN, response.data.data.login
           )
-          axios.defaults.headers.common.Authorization = `Bearer ${response.data.data.login}`
 
+          console.log(`Bearer ${response.data.data.login}`)
+          // axios.defaults.headers.common.Authorization = `Bearer ${response.data.data.login}`
+          axios.defaults.headers.common.Authorization = `Bearer ${response.data.data.login}`
           dispatch('checkLogin').catch(error => {
             commit('AUTH_USER_LOGOUT')
             reject(error)
@@ -75,7 +76,17 @@ const actions = {
       }
 
       return axios
-        .post(`${URL_BASE}`)
+        .post(`${URL_BASE}`, {
+          query: `
+          {
+            me {
+              id
+              username
+              email
+            }
+          }
+          `
+        })
         .then(response => {
           commit('AUTH_USER', response.data)
           return resolve()

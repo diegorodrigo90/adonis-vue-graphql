@@ -2024,17 +2024,6 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_transitions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-transitions */ "./node_modules/vue2-transitions/dist/vue2-transitions.m.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -4048,20 +4037,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Icons */ "./resources/assets/js/views/components/Icons.vue");
 /* harmony import */ var _components_Examples__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Examples */ "./resources/assets/js/views/components/Examples.vue");
 /* harmony import */ var _components_DownloadSection__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/DownloadSection */ "./resources/assets/js/views/components/DownloadSection.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -4073,7 +4048,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "components",
+  name: 'Components',
   components: {
     Hero: _components_Hero__WEBPACK_IMPORTED_MODULE_0__["default"],
     BasicElements: _components_BasicElements__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -4099,510 +4074,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "home",
+  name: 'Home',
   components: {}
 });
 
@@ -4617,135 +4090,25 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       formData: {
-        email: "",
-        password: ""
+        email: '',
+        password: ''
       },
       errors: {},
-      error: ""
+      error: ''
     };
   },
   methods: {
     login: function login() {
       var _this = this;
 
-      this.$store.dispatch("login", this.formData).then(function () {
+      this.$store.dispatch('login', this.formData).then(function () {
         // this.$snotify.success("Sucesso ao logar", "OK");
         _this.$router.push({
-          name: "landing"
+          name: 'landing'
         });
       })["catch"](function (response) {
         _this.error = response.error; // this.$snotify.error("Falha...", "Erro");
@@ -4766,15 +4129,11 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
-    this.$store.dispatch("logout");
+    this.$store.dispatch('logout');
     this.$router.push({
-      name: "login"
+      name: 'login'
     });
   }
 });
@@ -4790,76 +4149,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -4873,82 +4162,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -17642,7 +16855,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("p", { staticClass: "lead  text-white" }, [
                   _vm._v(
-                    "The design system comes with four pre-built pages to help\n                                you get started faster. You can change the text and images and you're good to\n                                go."
+                    "\n                The design system comes with four pre-built pages to help\n                you get started faster. You can change the text and images and you're good to\n                go.\n              "
                   )
                 ]),
                 _vm._v(" "),
@@ -17664,7 +16877,7 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                                    Components\n                                "
+                          "\n                  Components\n                "
                         )
                       ]
                     ),
@@ -17683,7 +16896,7 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                                    Download HTML\n                                "
+                          "\n                  Download HTML\n                "
                         )
                       ]
                     )
@@ -17723,12 +16936,14 @@ var render = function() {
                       }),
                       _vm._v(" "),
                       _c("h6", { staticClass: "text-primary text-uppercase" }, [
-                        _vm._v("Download Argon")
+                        _vm._v(
+                          "\n                  Download Argon\n                "
+                        )
                       ]),
                       _vm._v(" "),
                       _c("p", { staticClass: "description mt-3" }, [
                         _vm._v(
-                          "Argon is a great free UI package based on Bootstrap 4\n                                    that includes the most important components and features."
+                          "\n                  Argon is a great free UI package based on Bootstrap 4\n                  that includes the most important components and features.\n                "
                         )
                       ]),
                       _vm._v(" "),
@@ -17738,19 +16953,31 @@ var render = function() {
                           _c(
                             "badge",
                             { attrs: { type: "primary", rounded: "" } },
-                            [_vm._v("design")]
+                            [
+                              _vm._v(
+                                "\n                    design\n                  "
+                              )
+                            ]
                           ),
                           _vm._v(" "),
                           _c(
                             "badge",
                             { attrs: { type: "primary", rounded: "" } },
-                            [_vm._v("system")]
+                            [
+                              _vm._v(
+                                "\n                    system\n                  "
+                              )
+                            ]
                           ),
                           _vm._v(" "),
                           _c(
                             "badge",
                             { attrs: { type: "primary", rounded: "" } },
-                            [_vm._v("creative")]
+                            [
+                              _vm._v(
+                                "\n                    creative\n                  "
+                              )
+                            ]
                           )
                         ],
                         1
@@ -17764,7 +16991,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                    Learn more\n                                "
+                            "\n                  Learn more\n                "
                           )
                         ]
                       )
@@ -17796,12 +17023,14 @@ var render = function() {
                       }),
                       _vm._v(" "),
                       _c("h6", { staticClass: "text-success text-uppercase" }, [
-                        _vm._v("Build Something")
+                        _vm._v(
+                          "\n                  Build Something\n                "
+                        )
                       ]),
                       _vm._v(" "),
                       _c("p", { staticClass: "description mt-3" }, [
                         _vm._v(
-                          "Argon is a great free UI package based on Bootstrap\n                                    4 that includes the most important components and features."
+                          "\n                  Argon is a great free UI package based on Bootstrap\n                  4 that includes the most important components and features.\n                "
                         )
                       ]),
                       _vm._v(" "),
@@ -17811,19 +17040,31 @@ var render = function() {
                           _c(
                             "badge",
                             { attrs: { type: "success", rounded: "" } },
-                            [_vm._v("business")]
+                            [
+                              _vm._v(
+                                "\n                    business\n                  "
+                              )
+                            ]
                           ),
                           _vm._v(" "),
                           _c(
                             "badge",
                             { attrs: { type: "success", rounded: "" } },
-                            [_vm._v("vision")]
+                            [
+                              _vm._v(
+                                "\n                    vision\n                  "
+                              )
+                            ]
                           ),
                           _vm._v(" "),
                           _c(
                             "badge",
                             { attrs: { type: "success", rounded: "" } },
-                            [_vm._v("success")]
+                            [
+                              _vm._v(
+                                "\n                    success\n                  "
+                              )
+                            ]
                           )
                         ],
                         1
@@ -17837,7 +17078,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                    Learn more\n                                "
+                            "\n                  Learn more\n                "
                           )
                         ]
                       )
@@ -17869,12 +17110,14 @@ var render = function() {
                       }),
                       _vm._v(" "),
                       _c("h6", { staticClass: "text-warning text-uppercase" }, [
-                        _vm._v("Prepare Launch")
+                        _vm._v(
+                          "\n                  Prepare Launch\n                "
+                        )
                       ]),
                       _vm._v(" "),
                       _c("p", { staticClass: "description mt-3" }, [
                         _vm._v(
-                          "Argon is a great free UI package based on Bootstrap\n                                    4 that includes the most important components and features."
+                          "\n                  Argon is a great free UI package based on Bootstrap\n                  4 that includes the most important components and features.\n                "
                         )
                       ]),
                       _vm._v(" "),
@@ -17884,19 +17127,31 @@ var render = function() {
                           _c(
                             "badge",
                             { attrs: { type: "warning", rounded: "" } },
-                            [_vm._v("marketing")]
+                            [
+                              _vm._v(
+                                "\n                    marketing\n                  "
+                              )
+                            ]
                           ),
                           _vm._v(" "),
                           _c(
                             "badge",
                             { attrs: { type: "warning", rounded: "" } },
-                            [_vm._v("product")]
+                            [
+                              _vm._v(
+                                "\n                    product\n                  "
+                              )
+                            ]
                           ),
                           _vm._v(" "),
                           _c(
                             "badge",
                             { attrs: { type: "warning", rounded: "" } },
-                            [_vm._v("launch")]
+                            [
+                              _vm._v(
+                                "\n                    launch\n                  "
+                              )
+                            ]
                           )
                         ],
                         1
@@ -17910,7 +17165,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                    Learn more\n                                "
+                            "\n                  Learn more\n                "
                           )
                         ]
                       )
@@ -17951,7 +17206,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("p", [
                   _vm._v(
-                    "The kit comes with three pre-built pages to help you get started faster. You can change\n                            the text and images and you're good to go."
+                    "\n              The kit comes with three pre-built pages to help you get started faster. You can change\n              the text and images and you're good to go.\n            "
                   )
                 ]),
                 _vm._v(" "),
@@ -17971,7 +17226,9 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("h6", { staticClass: "mb-0" }, [
-                          _vm._v("Carefully crafted components")
+                          _vm._v(
+                            "\n                    Carefully crafted components\n                  "
+                          )
                         ])
                       ],
                       1
@@ -17993,7 +17250,9 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("h6", { staticClass: "mb-0" }, [
-                          _vm._v("Amazing page examples")
+                          _vm._v(
+                            "\n                    Amazing page examples\n                  "
+                          )
                         ])
                       ],
                       1
@@ -18015,7 +17274,9 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("h6", { staticClass: "mb-0" }, [
-                          _vm._v("Super friendly support team")
+                          _vm._v(
+                            "\n                    Super friendly support team\n                  "
+                          )
                         ])
                       ],
                       1
@@ -18074,12 +17335,12 @@ var render = function() {
                 _c(
                   "h4",
                   { staticClass: "display-3 font-weight-bold text-white" },
-                  [_vm._v("Design System")]
+                  [_vm._v("\n                Design System\n              ")]
                 ),
                 _vm._v(" "),
                 _c("p", { staticClass: "lead text-italic text-white" }, [
                   _vm._v(
-                    "The Arctic Ocean freezes every winter and much of\n                                the sea-ice then thaws every summer, and that process will continue whatever\n                                happens."
+                    "\n                The Arctic Ocean freezes every winter and much of\n                the sea-ice then thaws every summer, and that process will continue whatever\n                happens.\n              "
                   )
                 ])
               ])
@@ -18106,19 +17367,19 @@ var render = function() {
                 _vm._v(" "),
                 _c("p", { staticClass: "lead" }, [
                   _vm._v(
-                    "Don't let your uses guess by attaching tooltips and popoves to any element.\n                            Just make sure you enable them first via JavaScript."
+                    "\n              Don't let your uses guess by attaching tooltips and popoves to any element.\n              Just make sure you enable them first via JavaScript.\n            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("p", [
                   _vm._v(
-                    "The kit comes with three pre-built pages to help you get started faster. You can change\n                            the text and images and you're good to go."
+                    "\n              The kit comes with three pre-built pages to help you get started faster. You can change\n              the text and images and you're good to go.\n            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("p", [
                   _vm._v(
-                    "The kit comes with three pre-built pages to help you get started faster. You can change\n                            the text and images and you're good to go."
+                    "\n              The kit comes with three pre-built pages to help you get started faster. You can change\n              the text and images and you're good to go.\n            "
                   )
                 ]),
                 _vm._v(" "),
@@ -18130,7 +17391,7 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "A beautiful UI Kit for impactful\n                            websites"
+                      "A beautiful UI Kit for impactful\n              websites"
                     )
                   ]
                 )
@@ -18203,12 +17464,14 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "pl-4" }, [
                         _c("h5", { staticClass: "title text-success" }, [
-                          _vm._v("Awesome Support")
+                          _vm._v(
+                            "\n                  Awesome Support\n                "
+                          )
                         ]),
                         _vm._v(" "),
                         _c("p", [
                           _vm._v(
-                            "The Arctic Ocean freezes every winter and much of the sea-ice then thaws\n                                    every summer, and that process will continue whatever happens."
+                            "\n                  The Arctic Ocean freezes every winter and much of the sea-ice then thaws\n                  every summer, and that process will continue whatever happens.\n                "
                           )
                         ]),
                         _vm._v(" "),
@@ -18248,12 +17511,14 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "pl-4" }, [
                         _c("h5", { staticClass: "title text-warning" }, [
-                          _vm._v("Modular Components")
+                          _vm._v(
+                            "\n                  Modular Components\n                "
+                          )
                         ]),
                         _vm._v(" "),
                         _c("p", [
                           _vm._v(
-                            "The Arctic Ocean freezes every winter and much of the sea-ice then thaws\n                                    every summer, and that process will continue whatever happens."
+                            "\n                  The Arctic Ocean freezes every winter and much of the sea-ice then thaws\n                  every summer, and that process will continue whatever happens.\n                "
                           )
                         ]),
                         _vm._v(" "),
@@ -18546,12 +17811,14 @@ var render = function() {
                 _c("div", { staticClass: "row align-items-center" }, [
                   _c("div", { staticClass: "col-lg-8" }, [
                     _c("h3", { staticClass: "text-white" }, [
-                      _vm._v("We made website building easier for you.")
+                      _vm._v(
+                        "\n                We made website building easier for you.\n              "
+                      )
                     ]),
                     _vm._v(" "),
                     _c("p", { staticClass: "lead text-white mt-3" }, [
                       _vm._v(
-                        "I will be the leader of a company that ends up being\n                                worth billions of dollars, because I got the answers. I understand culture."
+                        "\n                I will be the leader of a company that ends up being\n                worth billions of dollars, because I got the answers. I understand culture.\n              "
                       )
                     ])
                   ]),
@@ -18574,7 +17841,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                Download Vue\n                            "
+                            "\n                Download Vue\n              "
                           )
                         ]
                       )
@@ -18616,12 +17883,12 @@ var render = function() {
                 }),
                 _vm._v(" "),
                 _c("h5", { staticClass: "text-white mt-3" }, [
-                  _vm._v("Building tools")
+                  _vm._v("\n            Building tools\n          ")
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "text-white mt-3" }, [
                   _vm._v(
-                    "Some quick example text to build on the card title and make up the\n                        bulk of the card's content."
+                    "\n            Some quick example text to build on the card title and make up the\n            bulk of the card's content.\n          "
                   )
                 ])
               ],
@@ -18644,12 +17911,12 @@ var render = function() {
                 }),
                 _vm._v(" "),
                 _c("h5", { staticClass: "text-white mt-3" }, [
-                  _vm._v("Grow your market")
+                  _vm._v("\n            Grow your market\n          ")
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "text-white mt-3" }, [
                   _vm._v(
-                    "Some quick example text to build on the card title and make up the\n                        bulk of the card's content."
+                    "\n            Some quick example text to build on the card title and make up the\n            bulk of the card's content.\n          "
                   )
                 ])
               ],
@@ -18672,12 +17939,12 @@ var render = function() {
                 }),
                 _vm._v(" "),
                 _c("h5", { staticClass: "text-white mt-3" }, [
-                  _vm._v("Launch time")
+                  _vm._v("\n            Launch time\n          ")
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "text-white mt-3" }, [
                   _vm._v(
-                    "Some quick example text to build on the card title and make up the\n                        bulk of the card's content."
+                    "\n            Some quick example text to build on the card title and make up the\n            bulk of the card's content.\n          "
                   )
                 ])
               ],
@@ -18709,11 +17976,15 @@ var render = function() {
                   },
                   [
                     _c("h4", { staticClass: "mb-1" }, [
-                      _vm._v("Want to work with us?")
+                      _vm._v(
+                        "\n              Want to work with us?\n            "
+                      )
                     ]),
                     _vm._v(" "),
                     _c("p", { staticClass: "mt-0" }, [
-                      _vm._v("Your project is very important to us.")
+                      _vm._v(
+                        "\n              Your project is very important to us.\n            "
+                      )
                     ]),
                     _vm._v(" "),
                     _c("base-input", {
@@ -18755,11 +18026,7 @@ var render = function() {
                           size: "lg"
                         }
                       },
-                      [
-                        _vm._v(
-                          "\n                            Send Message\n                        "
-                        )
-                      ]
+                      [_vm._v("\n              Send Message\n            ")]
                     )
                   ],
                   1
@@ -18780,7 +18047,7 @@ var render = function() {
             _vm._v(" "),
             _c("p", { staticClass: "lead" }, [
               _vm._v(
-                "Cause if you do, it can be yours for FREE. Hit the button below to navigate to\n                        Creative Tim where you can find the Design System in HTML. Start a new project or give an\n                        old Bootstrap project a new look!"
+                "\n            Cause if you do, it can be yours for FREE. Hit the button below to navigate to\n            Creative Tim where you can find the Design System in HTML. Start a new project or give an\n            old Bootstrap project a new look!\n          "
               )
             ]),
             _vm._v(" "),
@@ -18788,7 +18055,9 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "text-center" }, [
               _c("h4", { staticClass: "display-4 mb-5 mt-5" }, [
-                _vm._v("Available on these technologies")
+                _vm._v(
+                  "\n              Available on these technologies\n            "
+                )
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "row justify-content-center" }, [
@@ -19012,7 +18281,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("h1", { staticClass: "display-3  text-white" }, [
-      _vm._v("A beautiful Design System\n                                "),
+      _vm._v("\n                A beautiful Design System\n                "),
       _c("span", [_vm._v("completed with examples")])
     ])
   },
@@ -19068,12 +18337,12 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "pl-4" }, [
       _c("h4", { staticClass: "display-3 text-white" }, [
-        _vm._v("Modern Interface")
+        _vm._v("\n                Modern Interface\n              ")
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "text-white" }, [
         _vm._v(
-          "The Arctic Ocean freezes every winter and much of the sea-ice then\n                                thaws every summer, and that process will continue whatever happens."
+          "\n                The Arctic Ocean freezes every winter and much of the sea-ice then\n                thaws every summer, and that process will continue whatever happens.\n              "
         )
       ])
     ])
@@ -19087,11 +18356,13 @@ var staticRenderFns = [
       { staticClass: "row justify-content-center text-center mb-lg" },
       [
         _c("div", { staticClass: "col-lg-8" }, [
-          _c("h2", { staticClass: "display-3" }, [_vm._v("The amazing Team")]),
+          _c("h2", { staticClass: "display-3" }, [
+            _vm._v("\n            The amazing Team\n          ")
+          ]),
           _vm._v(" "),
           _c("p", { staticClass: "lead text-muted" }, [
             _vm._v(
-              "According to the National Oceanic and Atmospheric Administration,\n                        Ted, Scambos, NSIDClead scentist, puts the potentially record maximum."
+              "\n            According to the National Oceanic and Atmospheric Administration,\n            Ted, Scambos, NSIDClead scentist, puts the potentially record maximum.\n          "
             )
           ])
         ])
@@ -19168,12 +18439,12 @@ var staticRenderFns = [
       [
         _c("div", { staticClass: "col-lg-10" }, [
           _c("h2", { staticClass: "display-3 text-white" }, [
-            _vm._v("Build something")
+            _vm._v("\n            Build something\n          ")
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "lead text-white" }, [
             _vm._v(
-              "According to the National Oceanic and Atmospheric Administration,\n                        Ted, Scambos, NSIDClead scentist, puts the potentially record low maximum sea ice extent\n                        tihs year down to low ice."
+              "\n            According to the National Oceanic and Atmospheric Administration,\n            Ted, Scambos, NSIDClead scentist, puts the potentially record low maximum sea ice extent\n            tihs year down to low ice.\n          "
             )
           ])
         ])
@@ -19185,7 +18456,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("h2", { staticClass: "display-3" }, [
-      _vm._v("Do you love this awesome\n                        "),
+      _vm._v("\n            Do you love this awesome\n            "),
       _c("span", { staticClass: "text-success" }, [
         _vm._v("Design System for Bootstrap 4?")
       ])
@@ -19408,7 +18679,11 @@ var render = function() {
                                   }
                                 }
                               },
-                              [_vm._v("Sign In")]
+                              [
+                                _vm._v(
+                                  "\n                  Sign In\n                "
+                                )
+                              ]
                             )
                           ],
                           1
@@ -19573,7 +18848,11 @@ var render = function() {
                               staticClass: "mr-4",
                               attrs: { type: "info", size: "sm" }
                             },
-                            [_vm._v("Connect")]
+                            [
+                              _vm._v(
+                                "\n                  Connect\n                "
+                              )
+                            ]
                           ),
                           _vm._v(" "),
                           _c(
@@ -19582,7 +18861,11 @@ var render = function() {
                               staticClass: "float-right",
                               attrs: { type: "default", size: "sm" }
                             },
-                            [_vm._v("Message")]
+                            [
+                              _vm._v(
+                                "\n                  Message\n                "
+                              )
+                            ]
                           )
                         ],
                         1
@@ -19634,7 +18917,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "text-center mt-5" }, [
                   _c("h3", [
-                    _vm._v("Jessica Jones\n                            "),
+                    _vm._v("\n              Jessica Jones\n              "),
                     _c("span", { staticClass: "font-weight-light" }, [
                       _vm._v(", 27")
                     ])
@@ -19642,12 +18925,14 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "h6 font-weight-300" }, [
                     _c("i", { staticClass: "ni location_pin mr-2" }),
-                    _vm._v("Bucharest, Romania")
+                    _vm._v("Bucharest, Romania\n            ")
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "h6 mt-4" }, [
                     _c("i", { staticClass: "ni business_briefcase-24 mr-2" }),
-                    _vm._v("Solution Manager - Creative Tim Officer")
+                    _vm._v(
+                      "Solution Manager - Creative Tim Officer\n            "
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", [
@@ -19774,9 +19059,7 @@ var render = function() {
                             },
                             slot: "icon"
                           }),
-                          _vm._v(
-                            "\n                                Github\n                            "
-                          )
+                          _vm._v("\n                Github\n              ")
                         ]),
                         _vm._v(" "),
                         _c("base-button", { attrs: { type: "neutral" } }, [
@@ -19787,9 +19070,7 @@ var render = function() {
                             },
                             slot: "icon"
                           }),
-                          _vm._v(
-                            "\n                                Google\n                            "
-                          )
+                          _vm._v("\n                Google\n              ")
                         ])
                       ],
                       1
@@ -19834,9 +19115,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("div", { staticClass: "text-muted font-italic" }, [
                           _c("small", [
-                            _vm._v(
-                              "password strength:\n                                    "
-                            ),
+                            _vm._v("password strength:\n                  "),
                             _c(
                               "span",
                               { staticClass: "text-success font-weight-700" },
@@ -19847,9 +19126,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("base-checkbox", [
                           _c("span", [
-                            _vm._v(
-                              "I agree with the\n                                    "
-                            ),
+                            _vm._v("I agree with the\n                  "),
                             _c("a", { attrs: { href: "#" } }, [
                               _vm._v("Privacy Policy")
                             ])
@@ -19866,7 +19143,11 @@ var render = function() {
                                 staticClass: "my-4",
                                 attrs: { type: "primary" }
                               },
-                              [_vm._v("Create account")]
+                              [
+                                _vm._v(
+                                  "\n                  Create account\n                "
+                                )
+                              ]
                             )
                           ],
                           1
@@ -43364,7 +42645,7 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  linkExactActiveClass: "active",
+  linkExactActiveClass: 'active',
   routes: _router_routes_map__WEBPACK_IMPORTED_MODULE_3__["default"],
   mode: 'history',
   scrollBehavior: function scrollBehavior(to) {
@@ -43372,12 +42653,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       return {
         selector: to.hash
       };
-    } else {
-      return {
-        x: 0,
-        y: 0
-      };
     }
+
+    return {
+      x: 0,
+      y: 0
+    };
   }
 });
 router.beforeEach(function (to, from, next) {
@@ -43390,7 +42671,9 @@ router.beforeEach(function (to, from, next) {
     return router.push({
       name: 'login'
     })["catch"](function (err) {});
-  } else if (requiresAuth && authenticated) {
+  }
+
+  if (requiresAuth && authenticated) {
     next();
   } else {
     next();
@@ -43426,8 +42709,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ([{
-  path: "/",
-  name: "components",
+  path: '/',
+  name: 'components',
   meta: {
     requiresAuth: true
   },
@@ -43437,8 +42720,8 @@ __webpack_require__.r(__webpack_exports__);
     footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 }, {
-  path: "/landing",
-  name: "landing",
+  path: '/landing',
+  name: 'landing',
   meta: {
     requiresAuth: true
   },
@@ -43448,8 +42731,8 @@ __webpack_require__.r(__webpack_exports__);
     footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 }, {
-  path: "/profile",
-  name: "profile",
+  path: '/profile',
+  name: 'profile',
   meta: {
     requiresAuth: true
   },
@@ -43459,24 +42742,24 @@ __webpack_require__.r(__webpack_exports__);
     footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 }, {
-  path: "/login",
-  name: "login",
+  path: '/login',
+  name: 'login',
   components: {
     header: _layout_AppHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
     "default": _views_Login_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 }, {
-  path: "/logout",
-  name: "logout",
+  path: '/logout',
+  name: 'logout',
   components: {
     header: _layout_AppHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
     "default": _views_Logout_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 }, {
-  path: "/register",
-  name: "register",
+  path: '/register',
+  name: 'register',
   components: {
     header: _layout_AppHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
     "default": _views_Register_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
@@ -43501,20 +42784,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var state = {
-  token: localStorage.getItem(_config__WEBPACK_IMPORTED_MODULE_1__["ACCESS_TOKEN"]) || "",
+  token: localStorage.getItem(_config__WEBPACK_IMPORTED_MODULE_1__["ACCESS_TOKEN"]) || '',
   authenticated: !!localStorage.getItem(_config__WEBPACK_IMPORTED_MODULE_1__["ACCESS_TOKEN"]),
   user: {}
 };
 var mutations = {
-  AUTH_USER_TOKEN: function AUTH_USER_TOKEN(state, token) {
+  AUTH_USER_TOKEN: function AUTH_USER_TOKEN(token) {
     localStorage.setItem(_config__WEBPACK_IMPORTED_MODULE_1__["ACCESS_TOKEN"], token);
     state.token = token;
     state.authenticated = true;
   },
-  AUTH_USER: function AUTH_USER(state, user) {
+  AUTH_USER: function AUTH_USER(user) {
     state.user = user;
   },
-  AUTH_USER_LOGOUT: function AUTH_USER_LOGOUT(state) {
+  AUTH_USER_LOGOUT: function AUTH_USER_LOGOUT() {
     state.user = null;
     state.token = null;
     localStorage.removeItem(_config__WEBPACK_IMPORTED_MODULE_1__["ACCESS_TOKEN"]);
@@ -43525,45 +42808,49 @@ var actions = {
   login: function login(_ref, formData) {
     var commit = _ref.commit,
         dispatch = _ref.dispatch;
-    commit("LOADING", true);
+    commit('LOADING', true);
     return new Promise(function (resolve, reject) {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("".concat(_config__WEBPACK_IMPORTED_MODULE_1__["URL_BASE"]), {
         query: "\n                mutation{\n                  login(email: \"".concat(formData.email, "\"\n                  password: \"").concat(formData.password, "\")\n                }\n                ")
       }).then(function (response) {
-        commit("AUTH_USER_TOKEN", response.data.data.login);
+        commit('AUTH_USER_TOKEN', response.data.data.login);
         localStorage.setItem(_config__WEBPACK_IMPORTED_MODULE_1__["ACCESS_TOKEN"], response.data.data.login);
-        axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common["Authorization"] = "Bearer ".concat(response.data.data.login);
-        dispatch("checkLogin")["catch"](function (error) {
-          commit("AUTH_USER_LOGOUT");
+        console.log("Bearer ".concat(response.data.data.login)); // axios.defaults.headers.common.Authorization = `Bearer ${response.data.data.login}`
+
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common.Authorization = "Bearer ".concat(response.data.data.login);
+        dispatch('checkLogin')["catch"](function (error) {
+          commit('AUTH_USER_LOGOUT');
           reject(error);
         });
         resolve();
       })["catch"](function (error) {
-        commit("AUTH_USER_LOGOUT");
+        commit('AUTH_USER_LOGOUT');
         reject(error);
       })["finally"](function () {
-        return commit("LOADING", false);
+        return commit('LOADING', false);
       });
     });
   },
   logout: function logout(_ref2) {
     var commit = _ref2.commit;
-    commit("AUTH_USER_LOGOUT");
+    commit('AUTH_USER_LOGOUT');
   },
   checkLogin: function checkLogin(_ref3) {
     var commit = _ref3.commit;
     var accessToken = localStorage.getItem(_config__WEBPACK_IMPORTED_MODULE_1__["ACCESS_TOKEN"]);
     return new Promise(function (resolve, reject) {
       if (!accessToken) {
-        commit("AUTH_USER_LOGOUT");
+        commit('AUTH_USER_LOGOUT');
         return reject();
       }
 
-      return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("".concat(_config__WEBPACK_IMPORTED_MODULE_1__["URL_BASE"])).then(function (response) {
-        commit("AUTH_USER", response.data);
+      return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("".concat(_config__WEBPACK_IMPORTED_MODULE_1__["URL_BASE"]), {
+        query: "\n          {\n            me {\n              id\n              username\n              email\n            }\n          }\n          "
+      }).then(function (response) {
+        commit('AUTH_USER', response.data);
         return resolve();
       })["catch"](function (error) {
-        commit("AUTH_USER_LOGOUT");
+        commit('AUTH_USER_LOGOUT');
         return reject(error);
       });
     });
@@ -43838,15 +43125,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************************!*\
   !*** ./resources/assets/js/views/Logout.vue ***!
   \**********************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Logout_vue_vue_type_template_id_7e15041d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Logout.vue?vue&type=template&id=7e15041d& */ "./resources/assets/js/views/Logout.vue?vue&type=template&id=7e15041d&");
 /* harmony import */ var _Logout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Logout.vue?vue&type=script&lang=js& */ "./resources/assets/js/views/Logout.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Logout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Logout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -43876,7 +43162,7 @@ component.options.__file = "resources/assets/js/views/Logout.vue"
 /*!***********************************************************************!*\
   !*** ./resources/assets/js/views/Logout.vue?vue&type=script&lang=js& ***!
   \***********************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

@@ -4,6 +4,7 @@ const User = use('App/Models/User')
 
 const HEADER_NAME = 'authorization'
 
+
 module.exports = {
   Query: {
     isAuthenticated: async (next, src, args, { auth }) => {
@@ -14,7 +15,7 @@ module.exports = {
         throw new GraphQLError('User has to be authenticated')
       }
     },
-    me: async (root, args, context) => context.currentUser,
+    me: async (_, root, args, context) => context,
     allUsers: async () => {
       const users = await User.all()
       return users.toJSON()
