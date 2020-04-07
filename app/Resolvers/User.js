@@ -1,21 +1,29 @@
 'use strict'
 
 const User = use('App/Models/User')
+const { validateAll } = use('Validator')
+const registerRules = use('App/Rules/Auth/RegisterRules')
 
-const HEADER_NAME = 'authorization'
-
+const GraphQLError = use('Adonis/Addons/GraphQLError')
 
 module.exports = {
   Query: {
-    isAuthenticated: async (next, src, args, { auth }) => {
+    isAuthenticated: async (_, __, { auth }) => {
       try {
+
         await auth.check()
-        return next()
+
+        return auth.getUser()
+
       } catch (error) {
-        throw new GraphQLError('User has to be authenticated')
+        throw new GraphQLError("Not logged in", error)
+
       }
     },
-    me: async (_, root, args, context) => context,
+    me: async (_, __, { auth }) => {
+      return auth.getUser()
+    },
+    // me:  (_, __, { auth }) => console.log(auth)
     allUsers: async () => {
       const users = await User.all()
       return users.toJSON()
@@ -30,11 +38,21 @@ module.exports = {
   Mutation: {
     // Handles user login
     login: async (_, { email, password }, { auth }) => {
-      const { token } = await auth.attempt(email, password)
+      const token = await auth.withRefreshToken().attempt(email, password)
       return token
     },
 
     // Create new user
-    createUser: async (_, { username, email, password }) => await User.create({ username, email, password })
+    createUser: async (_, { username, email, password, passwordConfirm }) => {
+      const validation = await validateAll({ username, email, password, passwordConfirm }, registerRules)
+
+      if (validation.fails()) {
+        throw new GraphQLError('Validation Failed', validation.messages())
+      }
+
+      const user = { username, email, password }
+
+      return await User.create(user)
+    }
   }
 }

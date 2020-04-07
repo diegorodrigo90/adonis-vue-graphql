@@ -6,6 +6,7 @@ module.exports = {
   options: {
     debug: false,
     endpointURL: '/graphql',
+
   },
 
   schema: join(__dirname, '../app/Schema'),
