@@ -8,22 +8,16 @@ const GraphQLError = use('Adonis/Addons/GraphQLError')
 
 module.exports = {
   Query: {
-    isAuthenticated: async (_, __, { auth }) => {
+    me: async (_, __, { auth }) => {
       try {
-
         await auth.check()
-
         return auth.getUser()
 
       } catch (error) {
-        throw new GraphQLError("Not logged in", error)
+        throw new GraphQLError("No user logged in")
 
       }
     },
-    me: async (_, __, { auth }) => {
-      return auth.getUser()
-    },
-    // me:  (_, __, { auth }) => console.log(auth)
     allUsers: async () => {
       const users = await User.all()
       return users.toJSON()
