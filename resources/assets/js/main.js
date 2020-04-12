@@ -1,23 +1,29 @@
-import Vue from "vue";
-import App from "@/App.vue";
-import router from "@/router";
-import Argon from "@/plugins/argon-kit";
+import Vue from 'vue'
+import App from '@/App.vue'
+import router from '@/router'
+import Argon from '@/plugins/argon-kit'
 import '@/registerServiceWorker'
-import VueSwal from "vue-swal";
-import store from '@/store';
+import VueSwal from 'vue-swal'
+import store from '@/store'
+import axiosApi from 'axios'
 
-Vue.use(VueSwal);
+import { ACCESS_TOKEN } from '@/config'
 
+Vue.use(VueSwal)
 
-Vue.config.productionTip = false;
-Vue.use(Argon);
+// get token in store
+const axios = axiosApi.create({ headers: { common: { Authorization: `Bearer ${localStorage.getItem(ACCESS_TOKEN)}` || '' } } })
+
+// put axios to be used globaly
+window.axios = axios
+
+Vue.use(Argon)
+
 new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount("#app");
+}).$mount('#app')
 
-// store
-//     .dispatch("checkLogin")
-//     .then(() => router.push({ name: "dashboard" }))
-//     .catch(error => router.push({ name: "login" }));
+store
+  .dispatch('checkLogin').catch(error => router.push({ name: 'login' }).catch(error => { }))

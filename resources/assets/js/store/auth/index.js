@@ -1,5 +1,6 @@
-import axios from 'axios'
-import { URL_BASE, ACCESS_TOKEN } from '@/config'
+
+import { ACCESS_TOKEN, REFRESH_TOKEN, URL_BASE } from '@/config'
+
 
 const state = {
   token: localStorage.getItem(ACCESS_TOKEN) || '',
@@ -8,16 +9,18 @@ const state = {
 }
 
 const mutations = {
-  AUTH_USER_TOKEN (token) {
-    localStorage.setItem(ACCESS_TOKEN, token)
+  AUTH_USER_TOKEN (token, refreshToken) {
+    localStorage.setItem(ACCESS_TOKEN, `Bearer ${token}`)
+    localStorage.setItem(REFRESH_TOKEN, refreshToken)
     state.token = token
+    state.refreshToken = refreshToken
     state.authenticated = true
   },
   AUTH_USER (user) {
     state.user = user
   },
   AUTH_USER_LOGOUT () {
-    state.user = null
+    state.user = {}
     state.token = null
     localStorage.removeItem(ACCESS_TOKEN)
     state.authenticated = false
@@ -25,32 +28,33 @@ const mutations = {
 }
 
 const actions = {
-  login ({ commit, dispatch }, formData) {
+  login ({ commit }, formData) {
     commit('LOADING', true)
     return new Promise((resolve, reject) => {
       axios
         .post(`${URL_BASE}`, {
           query: `
-                mutation{
-                  login(email: "${formData.email}"
-                  password: "${formData.password}")
-                }
-                `
+        mutation{
+          login(email: "${formData.email}"
+          password: "${formData.password}"){
+            type
+            token
+            refreshToken
+          }
+        }
+        `
         })
         .then(response => {
-          commit('AUTH_USER_TOKEN', response.data.data.login)
+          commit('AUTH_USER_TOKEN', response.data.data.login.token, response.data.data.login.refreshToken)
           localStorage.setItem(
-            ACCESS_TOKEN, response.data.data.login
+            ACCESS_TOKEN, response.data.data.login.token
           )
 
-          console.log(`Bearer ${response.data.data.login}`)
-          // axios.defaults.headers.common.Authorization = `Bearer ${response.data.data.login}`
-          axios.defaults.headers.common.Authorization = `Bearer ${response.data.data.login}`
-          dispatch('checkLogin').catch(error => {
-            commit('AUTH_USER_LOGOUT')
-            reject(error)
-          })
+          const setAuthorizationHeader = token => {
+            axios.defaults.headers.common.Authorization = token ? `Bearer ${token}` : ''
+          }
 
+          setAuthorizationHeader((response.data.data.login.token).toString())
 
           resolve()
         })
@@ -68,7 +72,6 @@ const actions = {
 
   checkLogin ({ commit }) {
     const accessToken = localStorage.getItem(ACCESS_TOKEN)
-
     return new Promise((resolve, reject) => {
       if (!accessToken) {
         commit('AUTH_USER_LOGOUT')
@@ -88,7 +91,16 @@ const actions = {
           `
         })
         .then(response => {
-          commit('AUTH_USER', response.data)
+          console.log(axios.defaults.headers.common)
+
+          console.log(response.data.data)
+          // console.log(axios.defaults.headers.common.Authorization)
+
+          if (response.data.errors) {
+            commit('AUTH_USER_LOGOUT')
+            return reject()
+          }
+          commit('AUTH_USER', response.data.data.me)
           return resolve()
         })
         .catch(error => {

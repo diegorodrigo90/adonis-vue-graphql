@@ -1,24 +1,25 @@
-type User {
-      id: Int!
-      username: String!
-      email: String!
-    }
+  type User {
+    id: Int!
+    username: String!
+    email: String!
+  }
 
-type AuthTokens {
+  type AuthTokens {
   token: String!,
   type: String!,
   refreshToken: String
-}
+  }
 
 
 
-type Query {
-      allUsers: [User]
-      fetchUser(id: Int!): User
-      me: User
-    }
+  type Query {
+    allUsers: [User]
+    fetchUser(id: Int!): User
+    me: User
+  }
 
-    type Mutation {
-      login (email: String!, password: String!): AuthTokens
-      createUser (username: String!, email: String!, password: String!, passwordConfirm: String!): User
-    }
+  type Mutation {
+    login (email: String!, password: String!): AuthTokens
+    refreshToken (refreshToken: String!): AuthTokens!
+    createUser (username: String!, email: String!, password: String!, passwordConfirm: String!): User
+  }

@@ -35,7 +35,11 @@ module.exports = {
       const token = await auth.withRefreshToken().attempt(email, password)
       return token
     },
-
+    refreshToken: async (_, { refreshToken }, { auth }) => {
+      const token = await auth
+      .newRefreshToken().generateForRefreshToken(refreshToken)
+      return token
+    },
     // Create new user
     createUser: async (_, { username, email, password, passwordConfirm }) => {
       const validation = await validateAll({ username, email, password, passwordConfirm }, registerRules)

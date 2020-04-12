@@ -42279,15 +42279,17 @@ function randomString() {
 /*!*********************************************!*\
   !*** ./resources/assets/js/config/index.js ***!
   \*********************************************/
-/*! exports provided: URL_BASE, ACCESS_TOKEN */
+/*! exports provided: URL_BASE, ACCESS_TOKEN, REFRESH_TOKEN */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "URL_BASE", function() { return URL_BASE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ACCESS_TOKEN", function() { return ACCESS_TOKEN; });
-var URL_BASE = "/graphql";
-var ACCESS_TOKEN = "access_token";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REFRESH_TOKEN", function() { return REFRESH_TOKEN; });
+var URL_BASE = '/graphql';
+var ACCESS_TOKEN = '';
+var REFRESH_TOKEN = '';
 
 /***/ }),
 
@@ -42475,6 +42477,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_swal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-swal */ "./node_modules/vue-swal/dist/vue-swal.js");
 /* harmony import */ var vue_swal__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_swal__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/store */ "./resources/assets/js/store/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/config */ "./resources/assets/js/config/index.js");
 
 
 
@@ -42482,8 +42487,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_swal__WEBPACK_IMPORTED_MODULE_5___default.a);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.config.productionTip = false;
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_swal__WEBPACK_IMPORTED_MODULE_5___default.a); // get token in store
+
+var axios = axios__WEBPACK_IMPORTED_MODULE_7___default.a.create({
+  headers: {
+    common: {
+      Authorization: "Bearer ".concat(localStorage.getItem(_config__WEBPACK_IMPORTED_MODULE_8__["ACCESS_TOKEN"])) || false
+    }
+  }
+}); // put axios to be used globaly
+
+window.axios = axios;
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(_plugins_argon_kit__WEBPACK_IMPORTED_MODULE_3__["default"]);
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   router: _router__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -42491,10 +42507,12 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   render: function render(h) {
     return h(_App_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
   }
-}).$mount("#app"); // store
-//     .dispatch("checkLogin")
-//     .then(() => router.push({ name: "dashboard" }))
-//     .catch(error => router.push({ name: "login" }));
+}).$mount('#app');
+_store__WEBPACK_IMPORTED_MODULE_6__["default"].dispatch('checkLogin')["catch"](function (error) {
+  return _router__WEBPACK_IMPORTED_MODULE_2__["default"].push({
+    name: 'login'
+  })["catch"](function (error) {});
+});
 
 /***/ }),
 
@@ -42778,50 +42796,47 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/config */ "./resources/assets/js/config/index.js");
-
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/config */ "./resources/assets/js/config/index.js");
 
 var state = {
-  token: localStorage.getItem(_config__WEBPACK_IMPORTED_MODULE_1__["ACCESS_TOKEN"]) || '',
-  authenticated: !!localStorage.getItem(_config__WEBPACK_IMPORTED_MODULE_1__["ACCESS_TOKEN"]),
+  token: localStorage.getItem(_config__WEBPACK_IMPORTED_MODULE_0__["ACCESS_TOKEN"]) || '',
+  authenticated: !!localStorage.getItem(_config__WEBPACK_IMPORTED_MODULE_0__["ACCESS_TOKEN"]),
   user: {}
 };
 var mutations = {
-  AUTH_USER_TOKEN: function AUTH_USER_TOKEN(token) {
-    localStorage.setItem(_config__WEBPACK_IMPORTED_MODULE_1__["ACCESS_TOKEN"], token);
+  AUTH_USER_TOKEN: function AUTH_USER_TOKEN(token, refreshToken) {
+    localStorage.setItem(_config__WEBPACK_IMPORTED_MODULE_0__["ACCESS_TOKEN"], "Bearer ".concat(token));
+    localStorage.setItem(_config__WEBPACK_IMPORTED_MODULE_0__["REFRESH_TOKEN"], refreshToken);
     state.token = token;
+    state.refreshToken = refreshToken;
     state.authenticated = true;
   },
   AUTH_USER: function AUTH_USER(user) {
     state.user = user;
   },
   AUTH_USER_LOGOUT: function AUTH_USER_LOGOUT() {
-    state.user = null;
+    state.user = {};
     state.token = null;
-    localStorage.removeItem(_config__WEBPACK_IMPORTED_MODULE_1__["ACCESS_TOKEN"]);
+    localStorage.removeItem(_config__WEBPACK_IMPORTED_MODULE_0__["ACCESS_TOKEN"]);
     state.authenticated = false;
   }
 };
 var actions = {
   login: function login(_ref, formData) {
-    var commit = _ref.commit,
-        dispatch = _ref.dispatch;
+    var commit = _ref.commit;
     commit('LOADING', true);
     return new Promise(function (resolve, reject) {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("".concat(_config__WEBPACK_IMPORTED_MODULE_1__["URL_BASE"]), {
-        query: "\n                mutation{\n                  login(email: \"".concat(formData.email, "\"\n                  password: \"").concat(formData.password, "\")\n                }\n                ")
+      axios.post("".concat(_config__WEBPACK_IMPORTED_MODULE_0__["URL_BASE"]), {
+        query: "\n        mutation{\n          login(email: \"".concat(formData.email, "\"\n          password: \"").concat(formData.password, "\"){\n            type\n            token\n            refreshToken\n          }\n        }\n        ")
       }).then(function (response) {
-        commit('AUTH_USER_TOKEN', response.data.data.login);
-        localStorage.setItem(_config__WEBPACK_IMPORTED_MODULE_1__["ACCESS_TOKEN"], response.data.data.login);
-        console.log("Bearer ".concat(response.data.data.login)); // axios.defaults.headers.common.Authorization = `Bearer ${response.data.data.login}`
+        commit('AUTH_USER_TOKEN', response.data.data.login.token, response.data.data.login.refreshToken);
+        localStorage.setItem(_config__WEBPACK_IMPORTED_MODULE_0__["ACCESS_TOKEN"], response.data.data.login.token);
 
-        axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common.Authorization = "Bearer ".concat(response.data.data.login);
-        dispatch('checkLogin')["catch"](function (error) {
-          commit('AUTH_USER_LOGOUT');
-          reject(error);
-        });
+        var setAuthorizationHeader = function setAuthorizationHeader(token) {
+          axios.defaults.headers.common.Authorization = token ? "Bearer ".concat(token) : '';
+        };
+
+        setAuthorizationHeader(response.data.data.login.token.toString());
         resolve();
       })["catch"](function (error) {
         commit('AUTH_USER_LOGOUT');
@@ -42837,17 +42852,25 @@ var actions = {
   },
   checkLogin: function checkLogin(_ref3) {
     var commit = _ref3.commit;
-    var accessToken = localStorage.getItem(_config__WEBPACK_IMPORTED_MODULE_1__["ACCESS_TOKEN"]);
+    var accessToken = localStorage.getItem(_config__WEBPACK_IMPORTED_MODULE_0__["ACCESS_TOKEN"]);
     return new Promise(function (resolve, reject) {
       if (!accessToken) {
         commit('AUTH_USER_LOGOUT');
         return reject();
       }
 
-      return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("".concat(_config__WEBPACK_IMPORTED_MODULE_1__["URL_BASE"]), {
+      return axios.post("".concat(_config__WEBPACK_IMPORTED_MODULE_0__["URL_BASE"]), {
         query: "\n          {\n            me {\n              id\n              username\n              email\n            }\n          }\n          "
       }).then(function (response) {
-        commit('AUTH_USER', response.data);
+        console.log(axios.defaults.headers.common);
+        console.log(response.data.data); // console.log(axios.defaults.headers.common.Authorization)
+
+        if (response.data.errors) {
+          commit('AUTH_USER_LOGOUT');
+          return reject();
+        }
+
+        commit('AUTH_USER', response.data.data.me);
         return resolve();
       })["catch"](function (error) {
         commit('AUTH_USER_LOGOUT');
@@ -44784,7 +44807,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/diego/Documentos/Github/correndo-provas/resources/assets/js/main.js */"./resources/assets/js/main.js");
+module.exports = __webpack_require__(/*! /home/diego/Documentos/Github/adonis-vue-graphql/resources/assets/js/main.js */"./resources/assets/js/main.js");
 
 
 /***/ })
