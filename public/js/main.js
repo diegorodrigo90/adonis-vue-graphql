@@ -2307,29 +2307,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "base-checkbox",
+  name: 'BaseCheckbox',
   model: {
-    prop: "checked"
+    prop: 'checked'
   },
   props: {
     checked: {
       type: [Array, Boolean],
-      description: "Whether checkbox is checked"
+      description: 'Whether checkbox is checked'
     },
     disabled: {
       type: Boolean,
-      description: "Whether checkbox is disabled"
+      description: 'Whether checkbox is disabled'
     },
     inline: {
       type: Boolean,
-      description: "Whether checkbox is inline"
+      description: 'Whether checkbox is inline'
     }
   },
   data: function data() {
     return {
-      cbId: "",
+      cbId: '',
       touched: false
     };
   },
@@ -2343,12 +2350,12 @@ __webpack_require__.r(__webpack_exports__);
           this.touched = true;
         }
 
-        this.$emit("input", check);
+        this.$emit('input', check);
       }
     },
     inlineClass: function inlineClass() {
       if (this.inline) {
-        return "form-check-inline";
+        return 'form-check-inline';
       }
     }
   },
@@ -2508,50 +2515,69 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'BaseInput',
   inheritAttrs: false,
-  name: "base-input",
   props: {
     required: {
       type: Boolean,
-      description: "Whether input is required (adds an asterix *)"
+      description: 'Whether input is required (adds an asterix *)'
     },
     valid: {
       type: Boolean,
-      description: "Whether is valid",
+      description: 'Whether is valid',
       "default": undefined
     },
     alternative: {
       type: Boolean,
-      description: "Whether input is of alternative layout"
+      description: 'Whether input is of alternative layout'
     },
     label: {
       type: String,
-      description: "Input label (text before input)"
+      description: 'Input label (text before input)'
     },
     error: {
       type: String,
-      description: "Input error (below input)"
+      description: 'Input error (below input)'
     },
     labelClasses: {
       type: String,
-      description: "Input label css classes"
+      description: 'Input label css classes'
     },
     inputClasses: {
       type: String,
-      description: "Input css classes"
+      description: 'Input css classes'
     },
     value: {
       type: [String, Number],
-      description: "Input value"
+      description: 'Input value'
     },
     addonRightIcon: {
       type: String,
-      description: "Addon right icon"
+      description: 'Addon right icon'
     },
     addonLeftIcon: {
       type: String,
-      description: "Addont left icon"
+      description: 'Addont left icon'
     }
   },
   data: function data() {
@@ -2582,15 +2608,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: {
     updateValue: function updateValue(evt) {
       var value = evt.target.value;
-      this.$emit("input", value);
+      this.$emit('input', value);
     },
     onFocus: function onFocus(value) {
       this.focused = true;
-      this.$emit("focus", value);
+      this.$emit('focus', value);
     },
     onBlur: function onBlur(value) {
       this.focused = false;
-      this.$emit("blur", value);
+      this.$emit('blur', value);
     }
   }
 });
@@ -4098,8 +4124,11 @@ __webpack_require__.r(__webpack_exports__);
         password: '',
         remmenber: ''
       },
-      errors: {},
-      error: ''
+      errors: '',
+      field: {
+        email: null,
+        password: null
+      }
     };
   },
   methods: {
@@ -4112,8 +4141,7 @@ __webpack_require__.r(__webpack_exports__);
           name: 'landing'
         });
       })["catch"](function (response) {
-        console.log(response);
-        _this.error = response.error; // this.$snotify.error("Falha...", "Erro");
+        _this.errors = response; // this.$snotify.error("Falha...", "Erro");
       });
     }
   }
@@ -15065,7 +15093,7 @@ var render = function() {
       _vm._t("label", [
         _vm.label
           ? _c("label", { class: _vm.labelClasses }, [
-              _vm._v("\n            " + _vm._s(_vm.label) + "\n            "),
+              _vm._v("\n      " + _vm._s(_vm.label) + "\n      "),
               _vm.required ? _c("span", [_vm._v("*")]) : _vm._e()
             ])
           : _vm._e()
@@ -15133,7 +15161,7 @@ var render = function() {
                 class: { "mt-2": _vm.hasIcon },
                 staticStyle: { display: "block" }
               },
-              [_vm._v("\n            " + _vm._s(_vm.error) + "\n        ")]
+              [_vm._v("\n      " + _vm._s(_vm.error) + "\n    ")]
             )
           : _vm._e()
       ])
@@ -18591,25 +18619,32 @@ var render = function() {
                         }
                       },
                       [
-                        _vm.error
-                          ? _c("div", {
-                              staticClass: "alert alert-warning",
-                              domProps: { textContent: _vm._s(_vm.error) }
-                            })
-                          : _vm._e(),
+                        _vm._l(_vm.errors, function(error, index) {
+                          return _c("div", { key: index }, [
+                            error.message[index].field != "email" &&
+                            error.message[index].field != "password"
+                              ? _c(
+                                  "div",
+                                  { staticClass: "alert alert-warning" },
+                                  [
+                                    _c("strong", [
+                                      _vm._v(_vm._s(error.message))
+                                    ])
+                                  ]
+                                )
+                              : _vm._e()
+                          ])
+                        }),
                         _vm._v(" "),
                         _c(
                           "div",
-                          {
-                            staticClass: "form-group",
-                            class: { "has-error": _vm.errors.email }
-                          },
+                          { staticClass: "form-group" },
                           [
                             _c("base-input", {
                               staticClass: "mb-3",
                               attrs: {
-                                alternative: "",
                                 placeholder: "Email",
+                                valid: _vm.field.email ? false : null,
                                 "addon-left-icon": "ni ni-email-83"
                               },
                               model: {
@@ -18621,16 +18656,27 @@ var render = function() {
                               }
                             }),
                             _vm._v(" "),
-                            _vm.errors.email
+                            _vm.errors
                               ? _c(
                                   "div",
                                   { staticClass: "help-block" },
-                                  _vm._l(_vm.errors.email, function(
-                                    error,
-                                    index
-                                  ) {
+                                  _vm._l(_vm.errors, function(error, index) {
                                     return _c("div", { key: index }, [
-                                      _c("strong", [_vm._v(_vm._s(error))])
+                                      error.message[index].field == "email"
+                                        ? _c("div", [
+                                            _vm._v(
+                                              "\n                      " +
+                                                _vm._s(
+                                                  (_vm.field.email = true)
+                                                ) +
+                                                "\n                      " +
+                                                _vm._s(
+                                                  error.message[index].message
+                                                ) +
+                                                "\n                    "
+                                            )
+                                          ])
+                                        : _vm._e()
                                     ])
                                   }),
                                   0
@@ -18642,14 +18688,12 @@ var render = function() {
                         _vm._v(" "),
                         _c(
                           "div",
-                          {
-                            staticClass: "form-group",
-                            class: { "has-error": _vm.errors.email }
-                          },
+                          { staticClass: "form-group " },
                           [
                             _c("base-input", {
+                              staticClass: "mb-3",
                               attrs: {
-                                alternative: "",
+                                valid: _vm.field.password ? false : null,
                                 type: "password",
                                 placeholder: "Password",
                                 "addon-left-icon": "ni ni-lock-circle-open"
@@ -18663,20 +18707,42 @@ var render = function() {
                               }
                             }),
                             _vm._v(" "),
-                            _vm._l(_vm.errors.password, function(error, index) {
+                            _vm._l(_vm.errors, function(error, index) {
                               return _c("div", { key: index }, [
-                                _c("strong", [_vm._v(_vm._s(error))])
+                                error.message[index].field == "password"
+                                  ? _c("div", [
+                                      _vm._v(
+                                        "\n                    " +
+                                          _vm._s((_vm.field.password = true)) +
+                                          "\n                    " +
+                                          _vm._s(error.message[index].message) +
+                                          "\n                  "
+                                      )
+                                    ])
+                                  : _vm._e()
                               ])
                             })
                           ],
                           2
                         ),
                         _vm._v(" "),
-                        _c("base-checkbox", [
-                          _vm._v(
-                            "\n                Remember me\n              "
-                          )
-                        ]),
+                        _c(
+                          "base-checkbox",
+                          {
+                            model: {
+                              value: _vm.formData.remmenber,
+                              callback: function($$v) {
+                                _vm.$set(_vm.formData, "remmenber", $$v)
+                              },
+                              expression: "formData.remmenber"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                Remember me\n              "
+                            )
+                          ]
+                        ),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -18703,7 +18769,7 @@ var render = function() {
                           1
                         )
                       ],
-                      1
+                      2
                     )
                   ]
                 ],

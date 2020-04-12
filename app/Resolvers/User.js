@@ -35,7 +35,7 @@ module.exports = {
       const validation = await validateAll({ email, password, remmenber }, loginRules)
 
       if (validation.fails()) {
-        throw new GraphQLError('Validation Failed', validation.messages())
+        throw new GraphQLError(validation.messages())
       }
 
       try {
@@ -58,12 +58,12 @@ module.exports = {
       const validation = await validateAll({ username, email, password, passwordConfirm }, registerRules)
 
       if (validation.fails()) {
-        throw new GraphQLError('Validation Failed', validation.messages())
+        throw new GraphQLError(validation.messages())
       }
 
       const user = { username, email, password }
 
-      return await User.create(user)
+      return User.create(user)
     }
   }
 }

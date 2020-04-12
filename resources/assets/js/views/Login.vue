@@ -7,8 +7,11 @@ export default {
         password: '',
         remmenber: ''
       },
-      errors: {},
-      error: ''
+      errors: '',
+      field: {
+        email: null,
+        password: null
+      }
     }
   },
   methods: {
@@ -20,8 +23,7 @@ export default {
           this.$router.push({ name: 'landing' })
         })
         .catch(response => {
-          console.log(response)
-          this.error = response.error
+          this.errors = response
           // this.$snotify.error("Falha...", "Erro");
         })
     }
@@ -82,57 +84,74 @@ export default {
                 @keyup.enter.prevent="login"
               >
                 <div
-                  v-if="error"
-                  class="alert alert-warning"
-                  v-text="error"
-                />
+                  v-for="(error, index) in errors"
+                  :key="index"
+                >
+                  <div
+                    v-if="error.message[index].field != 'email' && error.message[index].field != 'password'"
+                    class="alert alert-warning"
+                  >
+                    <strong>{{ error.message }}</strong>
+                  </div>
+                </div>
 
                 <div
                   class="form-group"
-                  :class="{ 'has-error': errors.email }"
                 >
                   <base-input
                     v-model="formData.email"
-                    alternative
                     class="mb-3"
                     placeholder="Email"
+                    :valid="field.email ? false : null"
+
                     addon-left-icon="ni ni-email-83"
                   />
 
                   <div
-                    v-if="errors.email"
+                    v-if="errors"
                     class="help-block"
                   >
                     <div
-                      v-for="(error, index) in errors.email"
+                      v-for="(error, index) in errors"
                       :key="index"
                     >
-                      <strong>{{ error }}</strong>
+                      <div
+                        v-if="error.message[index].field == 'email'"
+                      >
+                        {{ field.email = true }}
+                        {{ error.message[index].message }}
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 <div
-                  class="form-group"
-                  :class="{ 'has-error': errors.email }"
+                  class="form-group "
                 >
                   <base-input
                     v-model="formData.password"
-                    alternative
+                    class="mb-3"
+                    :valid="field.password ? false : null"
                     type="password"
                     placeholder="Password"
                     addon-left-icon="ni ni-lock-circle-open"
                   />
 
+
                   <div
-                    v-for="(error, index) in errors.password"
+                    v-for="(error, index) in errors"
                     :key="index"
                   >
-                    <strong>{{ error }}</strong>
+                    <div v-if="error.message[index].field == 'password'">
+                      {{ field.password = true }}
+                      {{ error.message[index].message }}
+                    </div>
                   </div>
                 </div>
 
-                <base-checkbox>
+                <base-checkbox
+                  v-model="formData.remmenber"
+                >
                   Remember me
                 </base-checkbox>
                 <div class="text-center">
