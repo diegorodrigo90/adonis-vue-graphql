@@ -4095,7 +4095,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       formData: {
         email: '',
-        password: ''
+        password: '',
+        remmenber: ''
       },
       errors: {},
       error: ''
@@ -4111,6 +4112,7 @@ __webpack_require__.r(__webpack_exports__);
           name: 'landing'
         });
       })["catch"](function (response) {
+        console.log(response);
         _this.error = response.error; // this.$snotify.error("Falha...", "Erro");
       });
     }
@@ -18570,7 +18572,19 @@ var render = function() {
                       {
                         staticClass: "form",
                         on: {
-                          submit: function($event) {
+                          keyup: function($event) {
+                            if (
+                              !$event.type.indexOf("key") &&
+                              _vm._k(
+                                $event.keyCode,
+                                "enter",
+                                13,
+                                $event.key,
+                                "Enter"
+                              )
+                            ) {
+                              return null
+                            }
                             $event.preventDefault()
                             return _vm.login($event)
                           }
@@ -42508,11 +42522,6 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     return h(_App_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
   }
 }).$mount('#app');
-_store__WEBPACK_IMPORTED_MODULE_6__["default"].dispatch('checkLogin')["catch"](function (error) {
-  return _router__WEBPACK_IMPORTED_MODULE_2__["default"].push({
-    name: 'login'
-  })["catch"](function (error) {});
-});
 
 /***/ }),
 
@@ -42683,19 +42692,16 @@ router.beforeEach(function (to, from, next) {
   var requiresAuth = to.matched.some(function (record) {
     return record.meta.requiresAuth;
   });
-  var authenticated = _store__WEBPACK_IMPORTED_MODULE_2__["default"].state.auth.authenticated;
 
-  if (requiresAuth && !authenticated) {
-    return router.push({
-      name: 'login'
-    })["catch"](function (err) {});
+  if (requiresAuth) {
+    _store__WEBPACK_IMPORTED_MODULE_2__["default"].dispatch('checkLogin')["catch"](function (error) {
+      return router.push({
+        name: 'login'
+      })["catch"](function (error) {});
+    });
   }
 
-  if (requiresAuth && authenticated) {
-    next();
-  } else {
-    next();
-  }
+  next();
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
 
@@ -42829,6 +42835,10 @@ var actions = {
       axios.post("".concat(_config__WEBPACK_IMPORTED_MODULE_0__["URL_BASE"]), {
         query: "\n        mutation{\n          login(email: \"".concat(formData.email, "\"\n          password: \"").concat(formData.password, "\"){\n            type\n            token\n            refreshToken\n          }\n        }\n        ")
       }).then(function (response) {
+        if (response.data.errors) {
+          reject(response.data.errors);
+        }
+
         commit('AUTH_USER_TOKEN', response.data.data.login.token, response.data.data.login.refreshToken);
         localStorage.setItem(_config__WEBPACK_IMPORTED_MODULE_0__["ACCESS_TOKEN"], response.data.data.login.token);
 
@@ -42867,7 +42877,7 @@ var actions = {
 
         if (response.data.errors) {
           commit('AUTH_USER_LOGOUT');
-          return reject();
+          return reject(response.data.errors);
         }
 
         commit('AUTH_USER', response.data.data.me);

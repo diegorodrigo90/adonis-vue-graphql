@@ -3,6 +3,8 @@
 const User = use('App/Models/User')
 const { validateAll } = use('Validator')
 const registerRules = use('App/Rules/Auth/RegisterRules')
+const loginRules = use('App/Rules/Auth/LoginRules')
+
 
 const GraphQLError = use('Adonis/Addons/GraphQLError')
 
@@ -12,10 +14,8 @@ module.exports = {
       try {
         await auth.check()
         return auth.getUser()
-
       } catch (error) {
-        throw new GraphQLError("No user logged in")
-
+        throw new GraphQLError('No user logged in')
       }
     },
     allUsers: async () => {
@@ -31,14 +31,27 @@ module.exports = {
 
   Mutation: {
     // Handles user login
-    login: async (_, { email, password }, { auth }) => {
-      const token = await auth.withRefreshToken().attempt(email, password)
-      return token
+    login: async (_, { email, password, remmenber }, { auth }) => {
+      const validation = await validateAll({ email, password, remmenber }, loginRules)
+
+      if (validation.fails()) {
+        throw new GraphQLError('Validation Failed', validation.messages())
+      }
+
+      try {
+        const token = await auth.withRefreshToken().attempt(email, password)
+        return token
+      } catch (error) {
+        throw new GraphQLError('Usuário/senha inválidos')
+      }
     },
     refreshToken: async (_, { refreshToken }, { auth }) => {
-      const token = await auth
-      .newRefreshToken().generateForRefreshToken(refreshToken)
-      return token
+      try {
+        const token = await auth.newRefreshToken().generateForRefreshToken(refreshToken)
+        return token
+      } catch (error) {
+        throw new GraphQLError('Realize login novamente')
+      }
     },
     // Create new user
     createUser: async (_, { username, email, password, passwordConfirm }) => {

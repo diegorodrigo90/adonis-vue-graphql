@@ -4,7 +4,8 @@ export default {
     return {
       formData: {
         email: '',
-        password: ''
+        password: '',
+        remmenber: ''
       },
       errors: {},
       error: ''
@@ -19,6 +20,7 @@ export default {
           this.$router.push({ name: 'landing' })
         })
         .catch(response => {
+          console.log(response)
           this.error = response.error
           // this.$snotify.error("Falha...", "Erro");
         })
@@ -77,7 +79,7 @@ export default {
               </div>
               <form
                 class="form"
-                @submit.prevent="login"
+                @keyup.enter.prevent="login"
               >
                 <div
                   v-if="error"

@@ -23,14 +23,11 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
-  const { authenticated } = store.state.auth
-  if (requiresAuth && !authenticated) {
-    return router.push({ name: 'login' }).catch(err => { })
-  } if (requiresAuth && authenticated) {
-    next()
-  } else {
-    next()
+  if (requiresAuth) {
+    store.dispatch('checkLogin').catch(error => router.push({ name: 'login' }).catch(error => { }))
   }
+
+  next()
 })
 
 export default router

@@ -45,6 +45,9 @@ const actions = {
         `
         })
         .then(response => {
+          if (response.data.errors) {
+            reject(response.data.errors)
+          }
           commit('AUTH_USER_TOKEN', response.data.data.login.token, response.data.data.login.refreshToken)
           localStorage.setItem(
             ACCESS_TOKEN, response.data.data.login.token
@@ -98,7 +101,7 @@ const actions = {
 
           if (response.data.errors) {
             commit('AUTH_USER_LOGOUT')
-            return reject()
+            return reject(response.data.errors)
           }
           commit('AUTH_USER', response.data.data.me)
           return resolve()

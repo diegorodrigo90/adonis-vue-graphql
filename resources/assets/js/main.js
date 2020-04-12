@@ -24,6 +24,3 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
-
-store
-  .dispatch('checkLogin').catch(error => router.push({ name: 'login' }).catch(error => { }))
