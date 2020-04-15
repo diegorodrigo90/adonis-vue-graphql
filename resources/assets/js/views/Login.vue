@@ -8,13 +8,19 @@ export default {
         remmenber: ''
       },
       errors: '',
-      field: {
-        email: null,
-        password: null
+      fieldHasError: {
+        email: '',
+        password: ''
       }
     }
   },
   methods: {
+    clearErrorMessage () {
+      this.fieldHasError = {
+        email: '',
+        password: ''
+      }
+    },
     login () {
       this.$store
         .dispatch('login', this.formData)
@@ -24,8 +30,29 @@ export default {
         })
         .catch(response => {
           this.errors = response
-          // this.$snotify.error("Falha...", "Erro");
+
+          if (response) {
+            const setErrors = (error, index) => {
+              if (error.field === 'email') {
+                this.$set(this.fieldHasError, 'email', error.message)
+              }
+
+              if (error.field === 'password') {
+                this.$set(this.fieldHasError, 'password', error.message)
+              }
+            }
+
+            const findErrors = (errors, i) => {
+              if (errors.message[i].field === 'password' || errors.message[i].field === 'email') {
+                errors.message.forEach(setErrors)
+              }
+            }
+
+            response.forEach(findErrors)
+          }
         })
+
+      this.clearErrorMessage()
     }
   }
 }
@@ -82,76 +109,49 @@ export default {
               <form
                 class="form"
                 @keyup.enter.prevent="login"
+                @submit.prevent="clearErrorMessage"
               >
                 <div
                   v-for="(error, index) in errors"
                   :key="index"
                 >
                   <div
-                    v-if="error.message[index].field != 'email' && error.message[index].field != 'password'"
+                    v-if="
+                      error.message[index].field != 'email' &&
+                        error.message[index].field != 'password'
+                    "
                     class="alert alert-warning"
                   >
                     <strong>{{ error.message }}</strong>
                   </div>
                 </div>
 
-                <div
-                  class="form-group"
-                >
+                <div class="form-group">
                   <base-input
                     v-model="formData.email"
                     class="mb-3"
+                    alternative
                     placeholder="Email"
-                    :valid="field.email ? false : null"
-
+                    :error="fieldHasError.email"
+                    :valid="fieldHasError.email ? false : null"
                     addon-left-icon="ni ni-email-83"
                   />
-
-                  <div
-                    v-if="errors"
-                    class="help-block"
-                  >
-                    <div
-                      v-for="(error, index) in errors"
-                      :key="index"
-                    >
-                      <div
-                        v-if="error.message[index].field == 'email'"
-                      >
-                        {{ field.email = true }}
-                        {{ error.message[index].message }}
-                      </div>
-                    </div>
-                  </div>
                 </div>
 
-                <div
-                  class="form-group "
-                >
+                <div class="form-group ">
                   <base-input
                     v-model="formData.password"
+                    alternative
                     class="mb-3"
-                    :valid="field.password ? false : null"
+                    :error="fieldHasError.password"
+                    :valid="fieldHasError.password ? false : null"
                     type="password"
                     placeholder="Password"
                     addon-left-icon="ni ni-lock-circle-open"
                   />
-
-
-                  <div
-                    v-for="(error, index) in errors"
-                    :key="index"
-                  >
-                    <div v-if="error.message[index].field == 'password'">
-                      {{ field.password = true }}
-                      {{ error.message[index].message }}
-                    </div>
-                  </div>
                 </div>
 
-                <base-checkbox
-                  v-model="formData.remmenber"
-                >
+                <base-checkbox v-model="formData.remmenber">
                   Remember me
                 </base-checkbox>
                 <div class="text-center">

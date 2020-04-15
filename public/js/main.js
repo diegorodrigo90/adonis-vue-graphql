@@ -4125,13 +4125,19 @@ __webpack_require__.r(__webpack_exports__);
         remmenber: ''
       },
       errors: '',
-      field: {
-        email: null,
-        password: null
+      fieldHasError: {
+        email: '',
+        password: ''
       }
     };
   },
   methods: {
+    clearErrorMessage: function clearErrorMessage() {
+      this.fieldHasError = {
+        email: '',
+        password: ''
+      };
+    },
     login: function login() {
       var _this = this;
 
@@ -4141,8 +4147,29 @@ __webpack_require__.r(__webpack_exports__);
           name: 'landing'
         });
       })["catch"](function (response) {
-        _this.errors = response; // this.$snotify.error("Falha...", "Erro");
+        _this.errors = response;
+
+        if (response) {
+          var setErrors = function setErrors(error, index) {
+            if (error.field === 'email') {
+              _this.$set(_this.fieldHasError, 'email', error.message);
+            }
+
+            if (error.field === 'password') {
+              _this.$set(_this.fieldHasError, 'password', error.message);
+            }
+          };
+
+          var findErrors = function findErrors(errors, i) {
+            if (errors.message[i].field === 'password' || errors.message[i].field === 'email') {
+              errors.message.forEach(setErrors);
+            }
+          };
+
+          response.forEach(findErrors);
+        }
       });
+      this.clearErrorMessage();
     }
   }
 });
@@ -18615,6 +18642,10 @@ var render = function() {
                             }
                             $event.preventDefault()
                             return _vm.login($event)
+                          },
+                          submit: function($event) {
+                            $event.preventDefault()
+                            return _vm.clearErrorMessage($event)
                           }
                         }
                       },
@@ -18643,8 +18674,10 @@ var render = function() {
                             _c("base-input", {
                               staticClass: "mb-3",
                               attrs: {
+                                alternative: "",
                                 placeholder: "Email",
-                                valid: _vm.field.email ? false : null,
+                                error: _vm.fieldHasError.email,
+                                valid: _vm.fieldHasError.email ? false : null,
                                 "addon-left-icon": "ni ni-email-83"
                               },
                               model: {
@@ -18654,34 +18687,7 @@ var render = function() {
                                 },
                                 expression: "formData.email"
                               }
-                            }),
-                            _vm._v(" "),
-                            _vm.errors
-                              ? _c(
-                                  "div",
-                                  { staticClass: "help-block" },
-                                  _vm._l(_vm.errors, function(error, index) {
-                                    return _c("div", { key: index }, [
-                                      error.message[index].field == "email"
-                                        ? _c("div", [
-                                            _vm._v(
-                                              "\n                      " +
-                                                _vm._s(
-                                                  (_vm.field.email = true)
-                                                ) +
-                                                "\n                      " +
-                                                _vm._s(
-                                                  error.message[index].message
-                                                ) +
-                                                "\n                    "
-                                            )
-                                          ])
-                                        : _vm._e()
-                                    ])
-                                  }),
-                                  0
-                                )
-                              : _vm._e()
+                            })
                           ],
                           1
                         ),
@@ -18693,7 +18699,11 @@ var render = function() {
                             _c("base-input", {
                               staticClass: "mb-3",
                               attrs: {
-                                valid: _vm.field.password ? false : null,
+                                alternative: "",
+                                error: _vm.fieldHasError.password,
+                                valid: _vm.fieldHasError.password
+                                  ? false
+                                  : null,
                                 type: "password",
                                 placeholder: "Password",
                                 "addon-left-icon": "ni ni-lock-circle-open"
@@ -18705,25 +18715,9 @@ var render = function() {
                                 },
                                 expression: "formData.password"
                               }
-                            }),
-                            _vm._v(" "),
-                            _vm._l(_vm.errors, function(error, index) {
-                              return _c("div", { key: index }, [
-                                error.message[index].field == "password"
-                                  ? _c("div", [
-                                      _vm._v(
-                                        "\n                    " +
-                                          _vm._s((_vm.field.password = true)) +
-                                          "\n                    " +
-                                          _vm._s(error.message[index].message) +
-                                          "\n                  "
-                                      )
-                                    ])
-                                  : _vm._e()
-                              ])
                             })
                           ],
-                          2
+                          1
                         ),
                         _vm._v(" "),
                         _c(
