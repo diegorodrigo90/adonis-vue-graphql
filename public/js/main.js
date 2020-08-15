@@ -44877,7 +44877,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/diego/Documentos/Github/adonis-vue-graphql/resources/assets/js/main.js */"./resources/assets/js/main.js");
+module.exports = __webpack_require__(/*! /home/diego/Projetos/Pessoal/adonis-vue-graphql/resources/assets/js/main.js */"./resources/assets/js/main.js");
 
 
 /***/ })
