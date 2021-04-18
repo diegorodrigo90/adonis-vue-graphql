@@ -34,7 +34,7 @@
     "adonis-graphql": "^1.0.1-alpha-4",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
-    "bootstrap-vue": "^2.7.0",
+    "bootstrap-vue": "^2.21.2",
     "flatpickr": "^4.6.3",
     "laravel-mix": "^5.0.4",
     "mysql": "^2.18.1",
