@@ -36,7 +36,7 @@
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.7.0",
     "flatpickr": "^4.6.3",
-    "laravel-mix": "^5.0.4",
+    "laravel-mix": "^5.0.8",
     "mysql": "^2.18.1",
     "nouislider": "^14.1.1",
     "register-service-worker": "^1.7.0",
